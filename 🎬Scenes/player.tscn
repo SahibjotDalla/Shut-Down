@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmbv6h3wpwp4x"]
+
+[ext_resource type="Texture2D" uid="uid://db18kneqtj8ie" path="res://🎨Sprites/Player.png" id="1_gtt7r"]
+[ext_resource type="Script" path="res://📜Scripts/player.gd" id="1_r1it2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qypda"]
+radius = 8.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_r1it2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qypda")
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_gtt7r")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(7, 0)
+rotation = 1.5708
+polygon = PackedVector2Array(0, -7, 3, 0, -3, 0)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(14, 6.00815e-05)
