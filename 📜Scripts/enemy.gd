@@ -5,12 +5,18 @@ extends CharacterBody2D
 
 @onready var player = get_parent().get_node("Player")
 
-func _process(delta):
+func _process(_delta):
+	$NavigationAgent2D.target_position = player.global_position
+	
+	print($NavigationAgent2D.get_current_navigation_path())
 	look_at(player.global_position)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
-	var direction = (player.global_position - global_position).normalized()
+	#var direction = (player.global_position - global_position).normalized()
+	
+	var next_path_pos = $NavigationAgent2D.get_next_path_position()
+	var direction = (next_path_pos - global_position).normalized( )
 
 	velocity.x = move_toward(velocity.x, speed * direction.x, accel)
 	velocity.y = move_toward(velocity.y, speed * direction.y, accel)
