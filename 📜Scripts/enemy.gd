@@ -7,8 +7,6 @@ extends CharacterBody2D
 
 func _process(_delta):
 	$NavigationAgent2D.target_position = player.global_position
-	
-	print($NavigationAgent2D.get_current_navigation_path())
 	look_at(player.global_position)
 
 func _physics_process(_delta):
